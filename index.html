@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raiyan Mirza | Technical Designer & Software Engineer</title>
-    <meta name="description" content="Portfolio of Raiyan Mirza, a Computer Science student and Technical Designer specializing in robust software solutions and modern web design.">
+    <meta name="description"
+        content="Portfolio of Raiyan Mirza, a Computer Science student and Technical Designer specializing in robust software solutions and modern web design.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
     <div class="cursor-glow"></div>
-    
+
     <nav>
         <div class="nav-container">
             <div class="logo">RM<span>.</span></div>
             <div class="nav-links">
+                <a href="#projects">My Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Tech Stack</a>
                 <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact" class="btn-primary">Hire Me</a>
+                <a href="mailto:rayan.rambo1233@gmail.com" class="btn-primary">Say Hello</a>
             </div>
         </div>
     </nav>
@@ -30,38 +36,61 @@
         <section id="hero">
             <div class="hero-content">
                 <span class="badge">Available for Projects</span>
-                <h1>Engineering <span class="gradient-text">Digital Excellence</span></h1>
-                <p class="subtitle">Computer Science student at TMU. I bridge the gap between complex software engineering and high-end aesthetic design.</p>
+                <h1>Hi, I'm <span class="gradient-text">Raiyan</span> 👋</h1>
+                <p class="subtitle">I'm a second-year Computer Science student at TMU in Toronto. I love building tools
+                    that make life easier and exploring the world of software engineering.</p>
                 <div class="hero-btns">
-                    <a href="#projects" class="btn-primary">View Work</a>
-                    <a href="#about" class="btn-secondary">Technical Background</a>
+                    <a href="#experience" class="btn-primary">See My Journey</a>
+                    <a href="#projects" class="btn-secondary">Check Out My Code</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="glass-card">
-                    <div class="code-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+                <div class="profile-container">
+                    <img src="profile.jpg" alt="Raiyan Mirza" class="profile-img">
+                    <div class="glass-card">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <p style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary);">
+                            <span class="keyword">const</span> <span class="variable">currentTask</span> = <span
+                                class="string">'Building the future'</span>;
+                        </p>
                     </div>
-                    <pre><code><span class="keyword">class</span> <span class="class-name">MirzaWebStudio</span> {
-  <span class="function">constructor</span>() {
-    <span class="variable">this</span>.status = <span class="string">'Building better web'</span>;
-    <span class="variable">this</span>.tech = [<span class="string">'C'</span>, <span class="string">'Python'</span>, <span class="string">'Java'</span>];
-  }
-}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">My Experience</h2>
+            <div class="experience-list">
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div class="exp-title">
+                            <h3>Supervisor</h3>
+                            <span class="company">AAM Furnishers | Lilongwe, Malawi</span>
+                        </div>
+                        <span class="date">Aug 2023 – July 2024</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Managed daily performance of 20+ employees across two warehouses.</li>
+                        <li>Improved on-time delivery by 20% through smart logistics and inventory coordination.</li>
+                        <li>Led store opening/closing procedures and maintained operational security protocols.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2 class="section-title">Featured Work</h2>
+            <h2 class="section-title">Things I've Built</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-image" id="sl-project"></div>
                     <div class="project-info">
                         <h3>Sign Language Interpreter</h3>
-                        <p>AI-powered real-time translation using Computer Vision and Python.</p>
+                        <p>An AI tool that translates sign language in real-time. This was a huge learning experience in
+                            Computer Vision!</p>
                         <div class="tags">
                             <span>Python</span>
                             <span>OpenCV</span>
@@ -73,7 +102,8 @@
                     <div class="project-image" id="java-draw"></div>
                     <div class="project-info">
                         <h3>Java Drawing Suite</h3>
-                        <p>Full-featured GUI application for custom rendering and vector drawing.</p>
+                        <p>A fun tool for drawing shapes and lines. It helped me master event handling and custom
+                            rendering in Java.</p>
                         <div class="tags">
                             <span>Java</span>
                             <span>Swing</span>
@@ -84,11 +114,12 @@
                 <div class="project-card">
                     <div class="project-image" id="hospital-app"></div>
                     <div class="project-info">
-                        <h3>Hospital Management System</h3>
-                        <p>Scalable desktop solution for medical data handling and patient tracking.</p>
+                        <h3>Hospital Management UI</h3>
+                        <p>A desktop app to manage patient records. I focused on making the data handling efficient and
+                            the UI clean.</p>
                         <div class="tags">
                             <span>Java</span>
-                            <span>Data Systems</span>
+                            <span>Data Handling</span>
                         </div>
                     </div>
                 </div>
@@ -133,10 +164,13 @@
         <section id="about">
             <div class="about-card">
                 <div class="about-header">
-                    <h2>Beyond the Code</h2>
+                    <h2>Meet Raiyan 👋</h2>
                 </div>
                 <div class="about-content">
-                    <p>Currently pursuing Computer Science Honors at Toronto Metropolitan University. With professional experience managing teams of 20+ at AAM Furnishers, I bring a unique blend of leadership and technical precision to every project.</p>
+                    <p>I'm fundamentally a problem solver. Whether it's managing a team of 20 back in Malawi or
+                        debugging complex Java applications here in Toronto, I love the challenge of making things work
+                        better. I'm currently looking for opportunities where I can combine my leadership experience
+                        with my technical skills in software engineering and cybersecurity.</p>
                     <div class="about-stats">
                         <div class="stat">
                             <span class="number">2028</span>
@@ -154,6 +188,13 @@
                 </div>
             </div>
         </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Let's connect!</h2>
+            <p class="contact-subtitle">I'm always open to talking about tech, student life at TMU, or potential
+                opportunities.</p>
+            <a href="mailto:rayan.rambo1233@gmail.com" class="btn-primary">Email Me</a>
+        </section>
     </main>
 
     <footer>
@@ -161,9 +202,10 @@
             <div class="footer-logo">RM<span>.</span></div>
             <p>&copy; 2025 Raiyan Mirza. Built with precision.</p>
             <div class="socials">
-                <a href="#"><i data-lucide="github"></i></a>
-                <a href="#"><i data-lucide="linkedin"></i></a>
-                <a href="#"><i data-lucide="mail"></i></a>
+                <a href="https://github.com/RaiyanMirza" target="_blank"><i data-lucide="github"></i></a>
+                <a href="https://www.linkedin.com/in/raiyanbeg-aashifbeg-mirza-a60436330/" target="_blank"><i
+                        data-lucide="linkedin"></i></a>
+                <a href="mailto:rayan.rambo1233@gmail.com"><i data-lucide="mail"></i></a>
             </div>
         </div>
     </footer>
@@ -173,4 +215,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
