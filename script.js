@@ -31,3 +31,20 @@ document.querySelectorAll('.project-card').forEach(card => {
         card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
+
+// Expandable logic
+document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const card = btn.closest('.project-card');
+        card.classList.toggle('expanded');
+
+        const isExpanded = card.classList.contains('expanded');
+        btn.innerHTML = isExpanded
+            ? `Read Less <i data-lucide="chevron-up"></i>`
+            : `Read More <i data-lucide="chevron-down"></i>`;
+
+        // Re-initialize icons for the new HTML
+        lucide.createIcons();
+    });
+});
+
