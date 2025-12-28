@@ -1,11 +1,13 @@
 :root {
-    --bg: #F8FAFC;
-    --card-bg: #ffffff;
-    --border: #e2e8f0;
-    --accent: #8B5CF6;
-    --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #7c3aed 100%);
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
+    --bg: #020617;
+    /* Deep Icy Navy */
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #22d3ee;
+    /* Electric Cyan */
+    --accent-gradient: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
     --font-main: 'Plus Jakarta Sans', sans-serif;
     --font-heading: 'Outfit', sans-serif;
 }
@@ -29,7 +31,7 @@ body {
     position: fixed;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(248, 250, 252, 0) 70%);
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(2, 6, 23, 0) 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -60,7 +62,7 @@ nav {
     width: 100%;
     padding: 1rem 0;
     z-index: 1000;
-    background: rgba(248, 250, 252, 0.8);
+    background: rgba(2, 6, 23, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
 }
@@ -387,9 +389,10 @@ code {
 .details-content {
     margin-top: 1.5rem;
     padding: 1.5rem;
-    background: #f1f5f9;
+    background: rgba(255, 255, 255, 0.03);
+    /* Dark glass */
     border-radius: 16px;
-    border: none;
+    border: 1px solid var(--border);
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.4s ease;
