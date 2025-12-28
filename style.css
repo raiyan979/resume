@@ -40,6 +40,85 @@ body {
     transition: 0.1s;
 }
 
+/* Floating Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+
+    50% {
+        transform: translateY(0) translateX(20px);
+    }
+
+    75% {
+        transform: translateY(20px) translateX(10px);
+    }
+}
+
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 10s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-duration: 12s;
+    opacity: 0.2;
+}
+
+.particle:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation-duration: 15s;
+    opacity: 0.3;
+    width: 6px;
+    height: 6px;
+}
+
+.particle:nth-child(3) {
+    top: 40%;
+    left: 40%;
+    animation-duration: 9s;
+    opacity: 0.1;
+}
+
+.particle:nth-child(4) {
+    top: 80%;
+    left: 20%;
+    animation-duration: 14s;
+    opacity: 0.2;
+}
+
+.particle:nth-child(5) {
+    top: 10%;
+    left: 90%;
+    animation-duration: 11s;
+    opacity: 0.25;
+}
+
 /* Typography */
 h1,
 h2,
