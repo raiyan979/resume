@@ -330,35 +330,48 @@ code {
     gap: 0.5rem;
 }
 
-.btn-text {
-    background: none;
-    border: none;
-    color: var(--accent);
-    font-weight: 700;
+/* Refined Read More Button */
+.read-more-btn {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-main);
     cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0;
-    margin-top: 1rem;
-    font-family: var(--font-main);
-    font-size: 0.9rem;
-    transition: 0.3s;
+    width: fit-content;
 }
 
-.btn-text:hover {
-    gap: 0.8rem;
+.read-more-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(139, 92, 246, 0.05);
+    transform: translateY(-2px);
 }
 
-.btn-text svg {
+.read-more-btn i {
     width: 16px;
     height: 16px;
     transition: 0.4s;
 }
 
-.project-card.expanded .btn-text svg {
+.project-card.expanded .read-more-btn {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.project-card.expanded .read-more-btn i {
     transform: rotate(180deg);
 }
+
 
 .project-details {
     max-height: 0;
@@ -372,14 +385,24 @@ code {
 }
 
 .details-content {
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #f1f5f9;
+    border-radius: 16px;
+    border: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+.project-card.expanded .details-content {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .details-content h5 {
-    color: var(--text-primary);
-    font-size: 0.9rem;
+    color: var(--accent);
+    font-size: 0.8rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -388,8 +411,13 @@ code {
 
 .details-content p {
     margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.details-content p:last-child {
+    margin-bottom: 0;
 }
 
 section {
@@ -425,10 +453,16 @@ section {
 }
 
 .project-image {
-    height: 200px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80');
+    height: 220px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80');
     background-size: cover;
     background-position: center;
+    transition: 0.5s;
+}
+
+.project-card:hover .project-image {
+    height: 230px;
+    /* Subtle zoom effect */
 }
 
 .project-info {

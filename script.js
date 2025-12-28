@@ -39,11 +39,12 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
         card.classList.toggle('expanded');
 
         const isExpanded = card.classList.contains('expanded');
+        // Update text but keep the icon class consistent for the rotation animation to work if we want, 
+        // OR just replace strictly.
         btn.innerHTML = isExpanded
-            ? `Read Less <i data-lucide="chevron-up"></i>`
+            ? `Close Details <i data-lucide="chevron-up"></i>`
             : `Read More <i data-lucide="chevron-down"></i>`;
 
-        // Re-initialize icons for the new HTML
         lucide.createIcons();
     });
 });
