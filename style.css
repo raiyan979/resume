@@ -803,11 +803,13 @@ footer {
     }
 
     .glass-card {
-        right: -10px;
         top: auto;
-        bottom: -20px;
-        max-width: 150px;
+        bottom: -30px;
+        right: 50%;
+        transform: translateX(50%);
+        max-width: 160px;
         padding: 0.6rem 1rem;
+        z-index: 20;
     }
 
     /* Sections */
