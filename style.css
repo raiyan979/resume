@@ -805,15 +805,9 @@ footer {
     }
 
     .glass-card {
-        top: auto;
-        bottom: -70px;
-        /* Push it much further down */
-        right: 50%;
-        transform: translateX(50%);
-        max-width: 180px;
-        padding: 0.6rem 1rem;
-        z-index: 20;
+        display: none;
     }
+
 
     /* Sections */
     section {
