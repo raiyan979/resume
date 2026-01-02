@@ -716,17 +716,18 @@ footer {
     h1 {
         font-size: 3.5rem;
     }
-    
+
     .hero-content {
         flex: 1;
     }
-    
+
     .hero-visual {
         flex: 0.5;
     }
 }
 
 @media (max-width: 768px) {
+
     /* Navigation */
     .mobile-menu-btn {
         display: flex;
@@ -802,8 +803,11 @@ footer {
     }
 
     .glass-card {
-        right: -20px;
-        top: -10px;
+        right: -10px;
+        top: auto;
+        bottom: -20px;
+        max-width: 150px;
+        padding: 0.6rem 1rem;
     }
 
     /* Sections */
@@ -870,10 +874,12 @@ footer {
     }
 
     .cursor-glow {
-        display: none; /* Disable glow on small mobile to improve performance and avoid layout issues */
+        display: none;
+        /* Disable glow on small mobile to improve performance and avoid layout issues */
     }
 
-    .btn-primary, .btn-secondary {
+    .btn-primary,
+    .btn-secondary {
         padding: 0.7rem 1.2rem;
         font-size: 0.9rem;
     }
