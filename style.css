@@ -805,7 +805,7 @@ footer {
     }
 
     .glass-card {
-        display: none;
+        display: none !important;
     }
 
 
