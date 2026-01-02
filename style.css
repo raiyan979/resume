@@ -694,24 +694,208 @@ footer {
     color: var(--accent);
 }
 
-@media (max-width: 768px) {
+/* Mobile Navigation Button Styles */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mobile-menu-btn:hover {
+    background: var(--card-bg);
+    border-color: var(--accent);
+}
+
+/* Media Queries for Mobile Optimization */
+@media (max-width: 1024px) {
     h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+    }
+    
+    .hero-content {
+        flex: 1;
+    }
+    
+    .hero-visual {
+        flex: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigation */
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(2, 6, 23, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 0;
+        overflow: hidden;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 0 solid var(--border);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        height: auto;
+        padding: 2rem 0;
+        border-bottom-width: 1px;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .nav-links .btn-primary {
+        margin-top: 1rem;
+        width: 80%;
+    }
+
+    /* Hero */
     #hero {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
         height: auto;
-        padding-top: 150px;
+        padding-top: 120px;
+        padding-bottom: 60px;
+        gap: 4rem;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
     }
 
     .hero-btns {
         justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 2.5rem;
+    }
+
+    .profile-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .glass-card {
+        right: -20px;
+        top: -10px;
+    }
+
+    /* Sections */
+    section {
+        padding: 80px 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Projects */
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Experience */
+    .exp-item {
+        padding: 1.8rem;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* About */
+    .about-content {
+        padding: 2rem;
     }
 
     .about-stats {
         flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
     }
+
+    .stat .number {
+        font-size: 2rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .cursor-glow {
+        display: none; /* Disable glow on small mobile to improve performance and avoid layout issues */
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+}
+
+/* Fix for smooth entrance animations on mobile */
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease-out;
+}
+
+section.reveal {
+    opacity: 1;
+    transform: translateY(0);
 }

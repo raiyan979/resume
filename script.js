@@ -49,3 +49,31 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
     });
 });
 
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        const isOpened = navLinks.classList.contains('active');
+        
+        // Toggle icon between menu and x
+        mobileMenuBtn.innerHTML = isOpened 
+            ? `<i data-lucide="x"></i>` 
+            : `<i data-lucide="menu"></i>`;
+        
+        lucide.createIcons();
+    });
+}
+
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const iconBtn = mobileMenuBtn.querySelector('i');
+        mobileMenuBtn.innerHTML = `<i data-lucide="menu"></i>`;
+        lucide.createIcons();
+    });
+});
