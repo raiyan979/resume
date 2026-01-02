@@ -812,6 +812,10 @@ footer {
         /* Make room for the card below */
     }
 
+    .cursor-glow {
+        display: none !important;
+    }
+
 
 
     /* Sections */
@@ -877,10 +881,6 @@ footer {
         font-size: 1.8rem;
     }
 
-    .cursor-glow {
-        display: none;
-        /* Disable glow on small mobile to improve performance and avoid layout issues */
-    }
 
     .btn-primary,
     .btn-secondary {
