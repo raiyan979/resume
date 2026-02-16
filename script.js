@@ -77,38 +77,41 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         lucide.createIcons();
     });
 });
-// Email Copy to Clipboard Logic with Blank Tab Prevention
-document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+// Final Boss: Email Handle with zero-tab policy
+document.querySelectorAll('.email-link').forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop the blank tab from opening
+        e.preventDefault();
+        const email = link.getAttribute('data-email') || "raiyan.mirza1233@gmail.com";
 
-        const email = "raiyan.mirza1233@gmail.com";
-        const mailtoUrl = link.getAttribute('href');
-
-        // Copy to clipboard
+        // 1. Copy to clipboard immediately
         if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(email).then(() => {
                 showToast("Email copied to clipboard!");
-                // After copying, try to open the email app after a short delay
-                setTimeout(() => { window.location.href = mailtoUrl; }, 100);
             });
         } else {
-            // Fallback for non-secure contexts (like local file testing)
             const textArea = document.createElement("textarea");
             textArea.value = email;
             document.body.appendChild(textArea);
             textArea.select();
-            try {
-                document.execCommand('copy');
-                showToast("Email copied to clipboard!");
-            } catch (err) {
-                console.error('Fallback copy failed', err);
-            }
+            document.execCommand('copy');
             document.body.removeChild(textArea);
-            setTimeout(() => { window.location.href = mailtoUrl; }, 100);
+            showToast("Email copied to clipboard!");
         }
+
+        // 2. Trigger Mail app using an invisible iframe (the most compatible way to avoid tabs)
+        const mailtoUrl = `mailto:${email}`;
+        const tempIframe = document.createElement('iframe');
+        tempIframe.style.display = 'none';
+        tempIframe.src = mailtoUrl;
+        document.body.appendChild(tempIframe);
+
+        // Cleanup
+        setTimeout(() => {
+            document.body.removeChild(tempIframe);
+        }, 500);
     });
 });
+
 
 
 function showToast(message) {
