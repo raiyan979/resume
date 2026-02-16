@@ -77,13 +77,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         lucide.createIcons();
     });
 });
-// Final Boss: Email Handle with zero-tab policy
+// Simplified Email Handler: Click to Copy Only
 document.querySelectorAll('.email-link').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const email = link.getAttribute('data-email') || "raiyan.mirza1233@gmail.com";
 
-        // 1. Copy to clipboard immediately
+        // Copy to clipboard
         if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(email).then(() => {
                 showToast("Email copied to clipboard!");
@@ -97,20 +97,9 @@ document.querySelectorAll('.email-link').forEach(link => {
             document.body.removeChild(textArea);
             showToast("Email copied to clipboard!");
         }
-
-        // 2. Trigger Mail app using an invisible iframe (the most compatible way to avoid tabs)
-        const mailtoUrl = `mailto:${email}`;
-        const tempIframe = document.createElement('iframe');
-        tempIframe.style.display = 'none';
-        tempIframe.src = mailtoUrl;
-        document.body.appendChild(tempIframe);
-
-        // Cleanup
-        setTimeout(() => {
-            document.body.removeChild(tempIframe);
-        }, 500);
     });
 });
+
 
 
 
