@@ -550,6 +550,12 @@ section {
     transition: 0.5s;
 }
 
+#sl-project { background-image: linear-gradient(rgba(34, 211, 238, 0.2), rgba(2, 6, 23, 0.8)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80'); }
+#hospital-app { background-image: linear-gradient(rgba(59, 130, 246, 0.2), rgba(2, 6, 23, 0.8)), url('https://images.unsplash.com/photo-1504868584819-f8eec5c635c6?auto=format&fit=crop&q=80'); }
+#java-draw { background-image: linear-gradient(rgba(147, 51, 234, 0.2), rgba(2, 6, 23, 0.8)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80'); }
+#img-editor { background-image: linear-gradient(rgba(236, 72, 153, 0.2), rgba(2, 6, 23, 0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80'); }
+#weather-app { background-image: linear-gradient(rgba(250, 204, 21, 0.2), rgba(2, 6, 23, 0.8)), url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80'); }
+
 .project-card:hover .project-image {
     height: 230px;
     /* Subtle zoom effect */
