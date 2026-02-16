@@ -58,12 +58,12 @@ if (mobileMenuBtn) {
         navLinks.classList.toggle('active');
         const icon = mobileMenuBtn.querySelector('i');
         const isOpened = navLinks.classList.contains('active');
-        
+
         // Toggle icon between menu and x
-        mobileMenuBtn.innerHTML = isOpened 
-            ? `<i data-lucide="x"></i>` 
+        mobileMenuBtn.innerHTML = isOpened
+            ? `<i data-lucide="x"></i>`
             : `<i data-lucide="menu"></i>`;
-        
+
         lucide.createIcons();
     });
 }
@@ -77,17 +77,39 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         lucide.createIcons();
     });
 });
-// Email Copy to Clipboard Logic
+// Email Copy to Clipboard Logic with Blank Tab Prevention
 document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
     link.addEventListener('click', (e) => {
+        e.preventDefault(); // Stop the blank tab from opening
+
         const email = "raiyan.mirza1233@gmail.com";
-        navigator.clipboard.writeText(email).then(() => {
-            showToast("Email copied to clipboard!");
-        });
-        // We still let the default mailto: trigger, 
-        // but now the user has the email ready to paste if their app fails.
+        const mailtoUrl = link.getAttribute('href');
+
+        // Copy to clipboard
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(email).then(() => {
+                showToast("Email copied to clipboard!");
+                // After copying, try to open the email app after a short delay
+                setTimeout(() => { window.location.href = mailtoUrl; }, 100);
+            });
+        } else {
+            // Fallback for non-secure contexts (like local file testing)
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast("Email copied to clipboard!");
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+            }
+            document.body.removeChild(textArea);
+            setTimeout(() => { window.location.href = mailtoUrl; }, 100);
+        }
     });
 });
+
 
 function showToast(message) {
     // Create toast element if it doesn't exist
@@ -97,10 +119,10 @@ function showToast(message) {
         toast.className = 'toast-notification';
         document.body.appendChild(toast);
     }
-    
+
     toast.textContent = message;
     toast.classList.add('show');
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);
