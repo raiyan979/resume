@@ -77,3 +77,31 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         lucide.createIcons();
     });
 });
+// Email Copy to Clipboard Logic
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const email = "raiyan.mirza1233@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            showToast("Email copied to clipboard!");
+        });
+        // We still let the default mailto: trigger, 
+        // but now the user has the email ready to paste if their app fails.
+    });
+});
+
+function showToast(message) {
+    // Create toast element if it doesn't exist
+    let toast = document.querySelector('.toast-notification');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        document.body.appendChild(toast);
+    }
+    
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
