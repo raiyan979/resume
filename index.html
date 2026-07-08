@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raiyan Mirza — AI &amp; Automation Developer</title>
+<meta name="description" content="Raiyan Mirza — AI &amp; automation developer and CS student at TMU. I build Chrome extensions and Python tools that put AI to work: reading the fine print, filling the forms, moving the data.">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raiyan Mirza — AI &amp; Automation Developer">
+<meta property="og:description" content="AI &amp; automation developer and CS student at TMU. Chrome extensions and Python tools that put AI to work.">
+<!-- TODO: set to the real deployed URL -->
+<meta property="og:url" content="https://REPLACE-ME.example.com/">
+<!-- TODO: supply og-image.png (1200×630) next to index.html -->
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raiyan Mirza — AI &amp; Automation Developer">
+<meta name="twitter:description" content="AI &amp; automation developer and CS student at TMU. Chrome extensions and Python tools that put AI to work.">
+
+<!-- TODO: set to the real deployed URL -->
+<link rel="canonical" href="https://REPLACE-ME.example.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Crect%20width='16'%20height='16'%20rx='3'%20fill='%23000000'/%3E%3Cpath%20d='M3.5%205l3%203-3%203'%20fill='none'%20stroke='%2343d17a'%20stroke-width='1.6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Cline%20x1='8.5'%20y1='11.2'%20x2='12'%20y2='11.2'%20stroke='%2343d17a'%20stroke-width='1.6'%20stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --panel: #11161c;
+    --panel-raised: #151b22;
+    --text: #e8ecef;
+    --muted: #868f97;
+    --green: #43d17a;
+    --cyan: #4fd6e8;
+    --amber: #e8a23d;
+    --border: #232b33;
+    --font: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+    --radius: 8px;
+    --radius-sm: 6px;
+    --content-width: 880px;
+    --content-width-wide: 1100px;
+    --topbar-h: 68px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--green); color: #06120a; }
+
+  #binaryRain {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+  }
+
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  section, header, footer { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+
+  .wrap {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- top bar ---------- */
+
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .top-bar__inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .top-bar__path { color: var(--green); font-weight: 600; font-size: 14px; }
+
+  .top-bar__brand { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+  .top-bar__nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .top-bar__nav a { color: var(--muted); font-size: 14px; }
+  .top-bar__nav a:hover { color: var(--cyan); text-decoration: none; }
+
+  .cmdk-hint-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: var(--radius-sm);
+    font-size: 11.5px;
+    padding: 3px 8px;
+  }
+  .cmdk-hint-btn:hover { color: var(--cyan); border-color: var(--cyan); }
+
+  /* ---------- hero / terminal window ---------- */
+
+  .hero { padding: 48px 20px 32px; }
+
+  .terminal {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow:
+      0 20px 60px -25px rgba(0, 0, 0, 0.65),
+      0 0 80px -35px rgba(67, 209, 122, 0.25);
+    transition: box-shadow 0.3s ease;
+  }
+  .terminal:hover {
+    box-shadow:
+      0 20px 60px -25px rgba(0, 0, 0, 0.65),
+      0 0 90px -30px rgba(67, 209, 122, 0.35);
+  }
+
+  .terminal__chrome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--panel-raised);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .terminal__dots { display: flex; gap: 7px; }
+  .terminal__dots span {
+    width: 11px; height: 11px; border-radius: 50%;
+    display: inline-block;
+  }
+  .terminal__dots span:nth-child(1) { background: #ff5f56; }
+  .terminal__dots span:nth-child(2) { background: #ffbd2e; }
+  .terminal__dots span:nth-child(3) { background: #27c93f; }
+
+  .terminal__title { color: var(--muted); font-size: 12px; }
+
+  .terminal__body {
+    padding: 28px 24px 30px;
+    /* fixed min-height so the typewriter reveal doesn't shove the page around */
+    min-height: 330px;
+  }
+
+  .term-line {
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 6px;
+  }
+
+  .term-line .prompt { color: var(--green); }
+
+  .hero__name {
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 700;
+    margin: 6px 0 10px;
+    min-height: 1.2em;
+  }
+
+  .hero__subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 26px;
+    min-height: 1.6em;
+  }
+
+  .hero__mission-line { margin-top: 22px; }
+
+  .hero__mission {
+    margin: 8px 0 26px;
+    color: var(--text);
+    max-width: 62ch;
+    min-height: 6.4em;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: var(--green);
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .hero__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .btn {
+    font-family: inherit;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    padding: 9px 16px;
+    font-size: 14px;
+  }
+
+  .btn--primary {
+    background: var(--green);
+    border-color: var(--green);
+    color: #06120a;
+    font-weight: 600;
+  }
+  .btn--primary:hover { background: #58e08f; }
+  .btn:not(.btn--primary):hover { border-color: var(--cyan); color: var(--cyan); }
+
+  /* ---------- generic sections ---------- */
+
+  .section { padding: 44px 20px; }
+
+  main { counter-reset: heading; }
+
+  .section__heading {
+    color: var(--cyan);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    margin: 0 0 18px;
+    counter-increment: heading;
+  }
+  .section__heading::before { content: counter(heading, decimal-leading-zero) " "; color: var(--muted); }
+
+  .panel {
+    background: linear-gradient(180deg, var(--panel-raised), var(--panel));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: 0 14px 30px -22px rgba(0, 0, 0, 0.55);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  .kw-green { color: var(--green); }
+  .kw-cyan { color: var(--cyan); }
+  .kw-amber { color: var(--amber); }
+
+  /* ---------- projects / grep ---------- */
+
+  .grep-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 20px;
+  }
+
+  .grep-bar__prefix { color: var(--green); white-space: nowrap; font-size: 14px; }
+  .grep-bar__cmd { color: var(--muted); font-size: 14px; }
+
+  .grep-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    min-width: 80px;
+  }
+  .grep-bar input:focus { outline: none; }
+  .grep-bar input::placeholder { color: #7a838b; }
+
+  .grep-bar__count { color: var(--amber); font-size: 13px; white-space: nowrap; }
+
+  .grep-empty {
+    color: var(--muted);
+    font-size: 14px;
+    padding: 18px 4px;
+    display: none;
+  }
+  .grep-empty.is-shown { display: block; }
+
+  #work .wrap { max-width: var(--content-width-wide); }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    align-items: start;
+    gap: 14px;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card[hidden] { display: none; }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--green);
+    box-shadow: 0 16px 34px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(67, 209, 122, 0.15);
+  }
+
+  mark.hl {
+    background: rgba(67, 209, 122, 0.22);
+    color: var(--green);
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+
+  .card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .card__title { font-size: 15px; font-weight: 600; margin: 0; }
+  .card__title .badge {
+    color: var(--amber);
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .card__tags {
+    color: var(--muted);
+    font-size: 12.5px;
+    margin: 5px 0 0;
+  }
+  .card__tags span { color: var(--cyan); }
+
+  .card__toggle {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 12.5px;
+    padding: 2px 4px;
+    flex-shrink: 0;
+  }
+  .card__toggle:hover { color: var(--cyan); }
+
+  .card__line {
+    color: var(--text);
+    margin: 10px 0 0;
+  }
+
+  .card__details-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  .card--expanded .card__details-wrap { grid-template-rows: 1fr; }
+  .card__details-inner { overflow: hidden; }
+
+  .card__bullets {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card__bullets li {
+    color: var(--muted);
+    font-size: 14px;
+    padding-left: 18px;
+    position: relative;
+  }
+  .card__bullets li::before {
+    content: "+";
+    color: var(--green);
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+  }
+
+  .card__links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .card__link {
+    font-size: 12.5px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+  }
+  .card__link:hover { color: var(--cyan); border-color: var(--cyan); text-decoration: none; }
+
+  /* ---------- experience timeline ---------- */
+
+  .timeline { display: flex; flex-direction: column; gap: 22px; }
+  .timeline__row { display: grid; grid-template-columns: 110px 1fr; gap: 16px; }
+  .timeline__year { color: var(--amber); font-size: 13.5px; white-space: nowrap; }
+  .timeline__role { font-weight: 600; margin: 0 0 3px; }
+  .timeline__detail { color: var(--muted); font-size: 14px; margin: 0; }
+
+  /* ---------- education ---------- */
+
+  .edu__line { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+  .edu__sub { color: var(--muted); font-size: 13.5px; margin: 0; }
+
+  /* ---------- stack code block ---------- */
+
+  .code-block {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    overflow-x: auto;
+    font-size: 14px;
+  }
+  .code-block pre { margin: 0; }
+  .tok-kw { color: var(--cyan); }
+  .tok-str { color: var(--green); }
+  .tok-punct { color: var(--muted); }
+
+  /* ---------- community ---------- */
+
+  .log-lines { display: flex; flex-direction: column; gap: 10px; }
+  .log-lines div { color: var(--text); font-size: 14px; }
+  .log-lines .prompt { color: var(--green); margin-right: 8px; }
+
+  /* ---------- contact footer ---------- */
+
+  .contact { padding: 44px 20px 30px; text-align: center; }
+  .contact__email {
+    font-size: clamp(20px, 4.5vw, 28px);
+    font-weight: 700;
+    color: var(--green);
+    display: inline-block;
+    margin: 8px 0 22px;
+  }
+  .contact__links { display: flex; gap: 10px; justify-content: center; margin-bottom: 26px; }
+  .footer-note { color: var(--muted); font-size: 12.5px; margin: 0; }
+
+  /* ---------- command palette ---------- */
+
+  .cmdk-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 9, 12, 0.72);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    padding: 14vh 20px 0;
+  }
+  .cmdk-overlay[hidden] { display: none; }
+
+  .cmdk-panel {
+    width: min(480px, 100%);
+    height: fit-content;
+    max-height: 60vh;
+    background: var(--panel-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+
+  .cmdk-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cmdk-input-row .prompt { color: var(--green); margin: 0; }
+  .cmdk-input-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+  }
+  .cmdk-input-row input:focus { outline: none; }
+
+  .cmdk-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    max-height: 44vh;
+    overflow-y: auto;
+  }
+  .cmdk-list li {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cmdk-list li[hidden] { display: none; }
+  .cmdk-list li:hover,
+  .cmdk-list li.is-active { background: rgba(79, 214, 232, 0.1); color: var(--cyan); }
+  .cmdk-tag { color: var(--muted); font-size: 12px; }
+
+  /* ---------- side rail / edge widgets ---------- */
+
+  .side-rail {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+  }
+
+  .side-rail__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+  .side-rail__list::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  .side-rail__list li {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-size: 10.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .side-rail__list li:hover { border-color: var(--cyan); color: var(--cyan); }
+  .side-rail__list li.is-active {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(67, 209, 122, 0.12);
+    box-shadow: 0 0 14px -2px rgba(67, 209, 122, 0.55);
+  }
+
+  @media (max-width: 1100px) {
+    .side-rail { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .top-bar__inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .timeline__row { grid-template-columns: 1fr; gap: 4px; }
+    .terminal__body { padding: 22px 18px 26px; }
+    .hero__mission { min-height: 14.4em; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cursor { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="binaryRain" aria-hidden="true"></canvas>
+
+<nav class="side-rail" aria-label="Jump to section">
+  <ol class="side-rail__list" id="sideRailList">
+    <li data-target="about" title="About">01</li>
+    <li data-target="work" title="Projects">02</li>
+    <li data-target="experience" title="Experience">03</li>
+    <li data-target="education" title="Education">04</li>
+    <li data-target="stack" title="Stack">05</li>
+    <li data-target="community" title="Community">06</li>
+  </ol>
+</nav>
+
+<header class="top-bar">
+  <div class="top-bar__inner">
+    <div class="top-bar__brand">
+      <span class="top-bar__path">~/raiyan-mirza</span>
+    </div>
+    <nav class="top-bar__nav" aria-label="Section navigation">
+      <a href="#work">./work</a>
+      <a href="#about">./about</a>
+      <a href="#experience">./experience</a>
+      <a href="#contact">./contact</a>
+      <button class="cmdk-hint-btn" id="cmdkHintBtn" type="button" aria-label="Open command palette">⌘K</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="terminal">
+      <div class="terminal__chrome">
+        <span class="terminal__dots"><span></span><span></span><span></span></span>
+        <span class="terminal__title">raiyan — zsh — 80×24</span>
+      </div>
+      <div class="terminal__body">
+        <p class="term-line"><span class="prompt">➜</span> <span id="typeCmd1">whoami --intro</span></p>
+        <h1 class="hero__name" id="typeName"></h1>
+        <p class="hero__subtitle" id="typeSubtitle"></p>
+
+        <p class="term-line hero__mission-line"><span class="prompt">➜</span> <span id="typeCmd2">cat mission.txt</span></p>
+        <p class="hero__mission" id="typeMission"></p>
+
+        <div class="hero__actions">
+          <button class="btn btn--primary" id="viewWorkBtn">$ view --work</button>
+          <a class="btn" href="https://github.com/raiyan979" target="_blank" rel="noopener">github ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/raiyanbeg-aashifbeg-mirza-a60436330" target="_blank" rel="noopener">linkedin ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="about">
+    <div class="wrap">
+      <h2 class="section__heading">// ABOUT</h2>
+      <div class="panel">
+        <p style="margin:0;">
+          <span class="kw-cyan">Computer Science</span> student at TMU who ships real things: hackathon builds under pressure (<span class="kw-amber">TELUS AI Hackathon</span>), cross-language systems in <span class="kw-green">Java</span> and <span class="kw-green">Python</span>, and browser automation that saves people hours. I like the unglamorous parts — error handling, edge cases, making the tool feel fast. Before code, I ran warehouses; deadlines don't scare me.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="work">
+    <div class="wrap">
+      <h2 class="section__heading">// PINNED PROJECTS</h2>
+
+      <div class="grep-bar">
+        <span class="grep-bar__prefix">~/work ➜</span>
+        <span class="grep-bar__cmd">grep</span>
+        <input type="text" id="grepInput" placeholder="try 'python' / 'chrome' / 'ai'" aria-label="Filter projects">
+        <span class="grep-bar__count" id="grepCount">5 matches</span>
+      </div>
+
+      <p class="grep-empty" id="grepEmpty">grep: no matches found — try 'clear'</p>
+
+      <div class="cards" id="cardList">
+
+        <article class="card card--expanded" data-search="sentin-ai javascript chrome api gpt-4o-mini real-time legal fine-print scanner reads terms of service so you don't have to hackathon">
+          <div class="card__top">
+            <div>
+              <h3 class="card__title">sentin-ai <span class="badge">🏆 hackathon build</span></h3>
+              <p class="card__tags">JavaScript · <span>Chrome API</span> · GPT-4o-mini</p>
+            </div>
+            <button class="card__toggle" aria-expanded="true">▴ close</button>
+          </div>
+          <p class="card__line">Real-time legal fine-print scanner. Reads Terms of Service so you don't have to.</p>
+          <div class="card__details-wrap">
+            <div class="card__details-inner">
+              <ul class="card__bullets">
+                <li>Chrome SidePanel extension that scans any page for legal clauses in real time.</li>
+                <li>Forensic prompt engineering with GPT-4o-mini scores privacy risk per clause.</li>
+                <li>Highlights problematic text in high-visibility overlays directly on the page.</li>
+                <li>Built under hackathon pressure at the TELUS AI Hackathon.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-search="sign-speak python mediapipe opencv real-time sign language text translator hand-tracking accessibility">
+          <div class="card__top">
+            <div>
+              <h3 class="card__title">sign-speak</h3>
+              <p class="card__tags">Python · <span>MediaPipe</span> · OpenCV</p>
+            </div>
+            <button class="card__toggle" aria-expanded="false">▾ details</button>
+          </div>
+          <p class="card__line">Real-time sign language → text translator using hand-tracking.</p>
+          <div class="card__details-wrap">
+            <div class="card__details-inner">
+              <ul class="card__bullets">
+                <li>Maps 3D hand landmarks to sign vocabulary with custom classification logic.</li>
+                <li>Live webcam pipeline: OpenCV capture → MediaPipe tracking → text output.</li>
+                <li>Built for accessibility — bridging communication gaps in real time.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-search="clinic-dash java swing python sql cross-language medical erp gui front analytics back">
+          <div class="card__top">
+            <div>
+              <h3 class="card__title">clinic-dash</h3>
+              <p class="card__tags">Java Swing · <span>Python</span> · SQL</p>
+            </div>
+            <button class="card__toggle" aria-expanded="false">▾ details</button>
+          </div>
+          <p class="card__line">Cross-language medical ERP: Java GUI front, Python analytics back.</p>
+          <div class="card__details-wrap">
+            <div class="card__details-inner">
+              <ul class="card__bullets">
+                <li>Relational patient records with automated ID generation.</li>
+                <li>Python analytics layer visualizes demographic data from the same store.</li>
+                <li>Two languages, one system — the integration is the point.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-search="autofill-jobs javascript chrome extension api parses job application forms fills intelligently manual data entry">
+          <div class="card__top">
+            <div>
+              <h3 class="card__title">autofill-jobs</h3>
+              <p class="card__tags">JavaScript · <span>Chrome Extension API</span></p>
+            </div>
+            <button class="card__toggle" aria-expanded="false">▾ details</button>
+          </div>
+          <p class="card__line">Parses job application forms and fills them intelligently. ~60% less manual data entry.</p>
+          <div class="card__details-wrap">
+            <div class="card__details-inner">
+              <ul class="card__bullets">
+                <li>Reads form fields on job application pages and matches them to known profile data.</li>
+                <li>Cuts repetitive manual entry by roughly 60% across multi-page applications.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-search="pixel-forge java swing python pillow vector drawing app pixel-level image editor oop graphics">
+          <div class="card__top">
+            <div>
+              <h3 class="card__title">pixel-forge</h3>
+              <p class="card__tags">Java Swing · <span>Python</span> · Pillow</p>
+            </div>
+            <button class="card__toggle" aria-expanded="false">▾ details</button>
+          </div>
+          <p class="card__line">A vector drawing app in Java and a pixel-level image editor in Python — OOP graphics from both sides.</p>
+          <div class="card__details-wrap">
+            <div class="card__details-inner">
+              <ul class="card__bullets">
+                <li>Java Swing app for vector rendering and shape transformations using OOP principles.</li>
+                <li>Python + Pillow tool for pixel-level image manipulation and custom filter effects.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="experience">
+    <div class="wrap">
+      <h2 class="section__heading">// EXPERIENCE</h2>
+      <div class="panel timeline">
+        <div class="timeline__row">
+          <span class="timeline__year">2023 — 2024</span>
+          <div>
+            <p class="timeline__role">Warehouse Supervisor · AAM Furnishers (Lilongwe, Malawi)</p>
+            <p class="timeline__detail">Led 20+ staff across two warehouses; improved on-time delivery 20%.</p>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <span class="timeline__year">2019 — 2021</span>
+          <div>
+            <p class="timeline__role">Junior Developer · Eshock</p>
+            <p class="timeline__detail">Shipped custom e-commerce modules in JavaScript; owned monitoring and cut site downtime.</p>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <span class="timeline__year">2020</span>
+          <div>
+            <p class="timeline__role">Technical Assistant · CCTV &amp; Flight Displays</p>
+            <p class="timeline__detail">Maintained airport FIDS displays at 99% uptime in a live terminal environment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="education">
+    <div class="wrap">
+      <h2 class="section__heading">// EDUCATION</h2>
+      <div class="panel">
+        <p class="edu__line">BSc Computer Science — Toronto Metropolitan University</p>
+        <p class="edu__sub">Data Structures · Software Engineering · C &amp; UNIX · Computer Organization · Comparative Programming Languages</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="stack">
+    <div class="wrap">
+      <h2 class="section__heading">// STACK</h2>
+      <div class="code-block"><pre><span class="tok-kw">const</span> stack = [
+  <span class="tok-str">"Python"</span>, <span class="tok-str">"Java"</span>, <span class="tok-str">"JavaScript"</span>, <span class="tok-str">"Elixir"</span>, <span class="tok-str">"Rust"</span>,
+  <span class="tok-str">"React"</span>, <span class="tok-str">"SQL"</span>, <span class="tok-str">"HTML/CSS"</span>, <span class="tok-str">"Chrome Extensions"</span>, <span class="tok-str">"OpenAI API"</span>,
+];</pre></div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="community">
+    <div class="wrap">
+      <h2 class="section__heading">// COMMUNITY</h2>
+      <div class="panel log-lines">
+        <div><span class="prompt">➜</span>Logistics lead, food distribution for 100+ families — Malawi</div>
+        <div><span class="prompt">➜</span>Jummah + Marhaba Dinner logistics (200+ students) — TMU MSA</div>
+        <div><span class="prompt">➜</span>Member &amp; volunteer — TMU Taekwondo Club</div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer class="contact reveal" id="contact">
+  <div class="wrap">
+    <p class="term-line" style="justify-content:center;"><span class="prompt">➜</span> echo $EMAIL</p>
+    <a class="contact__email" href="mailto:raiyan.mirza@gmail.com">raiyan.mirza@gmail.com</a>
+    <div class="contact__links">
+      <a class="btn" href="https://github.com/raiyan979" target="_blank" rel="noopener">github</a>
+      <a class="btn" href="https://www.linkedin.com/in/raiyanbeg-aashifbeg-mirza-a60436330" target="_blank" rel="noopener">linkedin</a>
+    </div>
+    <p class="footer-note">© 2026 raiyan-mirza · built with vanilla everything</p>
+  </div>
+</footer>
+
+<div class="cmdk-overlay" id="cmdkOverlay" hidden>
+  <div class="cmdk-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cmdk-input-row">
+      <span class="prompt">➜</span>
+      <input type="text" id="cmdkInput" placeholder="jump to... (esc to close)" autocomplete="off" spellcheck="false" aria-label="Jump to section">
+    </div>
+    <ul class="cmdk-list" id="cmdkList">
+      <li data-target="work">./work <span class="cmdk-tag">projects</span></li>
+      <li data-target="about">./about <span class="cmdk-tag">bio</span></li>
+      <li data-target="experience">./experience <span class="cmdk-tag">timeline</span></li>
+      <li data-target="education">./education <span class="cmdk-tag">school</span></li>
+      <li data-target="stack">./stack <span class="cmdk-tag">tech</span></li>
+      <li data-target="community">./community <span class="cmdk-tag">volunteering</span></li>
+      <li data-target="contact">./contact <span class="cmdk-tag">email</span></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // === EDIT ME: real links per project. Leave as-is to fall back to the GitHub profile. ===
+  const PROJECT_LINKS = {
+    "sentin-ai":     { repo: "https://github.com/raiyan979", demo: "" },
+    "sign-speak":    { repo: "https://github.com/raiyan979", demo: "" },
+    "clinic-dash":   { repo: "https://github.com/raiyan979", demo: "" },
+    "autofill-jobs": { repo: "https://github.com/raiyan979", demo: "" },
+    "pixel-forge":   { repo: "https://github.com/raiyan979", demo: "" },
+  };
+
+  /* ---------- keep section jumps clear of the sticky top bar ---------- */
+  (function syncTopBarHeight() {
+    const bar = document.querySelector(".top-bar");
+    function sync() {
+      document.documentElement.style.setProperty("--topbar-h", `${Math.ceil(bar.getBoundingClientRect().height)}px`);
+    }
+    sync();
+    window.addEventListener("resize", sync);
+  })();
+
+  /* ---------- binary rain background ---------- */
+  (function binaryRain() {
+    const canvas = document.getElementById("binaryRain");
+    const ctx = canvas.getContext("2d");
+    const fontSize = 15;
+    const cellW = fontSize * 0.72;
+    const rainColor = "93, 255, 176";
+    let columns = 0;
+    let drops = [];
+
+    // canvas.width/height must match the real device pixel count, not just
+    // CSS pixels, or the browser upscales the bitmap and everything blurs
+    // into a smeared wash on any display running above 100% OS scaling.
+    function configureContext() {
+      const dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
+    }
+
+    function resize() {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      configureContext();
+      columns = Math.ceil(window.innerWidth / cellW);
+      drops = new Array(columns).fill(0).map(() => Math.floor(Math.random() * -80));
+    }
+    resize();
+
+    if (prefersReducedMotion) {
+      const rows = Math.ceil(window.innerHeight / fontSize);
+      for (let i = 0; i < columns; i++) {
+        for (let r = 0; r < rows; r++) {
+          if (Math.random() > 0.94) {
+            const char = Math.random() > 0.5 ? "1" : "0";
+            ctx.fillStyle = `rgba(${rainColor}, ${0.12 + Math.random() * 0.18})`;
+            ctx.fillText(char, i * cellW, r * fontSize);
+          }
+        }
+      }
+      return;
+    }
+
+    function drawFrame() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      ctx.fillStyle = "rgba(0, 0, 0, 0.09)";
+      ctx.fillRect(0, 0, w, h);
+
+      drops.forEach((y, i) => {
+        const char = Math.random() > 0.5 ? "1" : "0";
+        // one flat low-opacity green per glyph — no per-character shadowBlur,
+        // which was the real cost of the old always-on interval loop
+        const alpha = 0.3 + Math.random() * 0.4;
+        ctx.fillStyle = `rgba(${rainColor}, ${alpha})`;
+        ctx.fillText(char, i * cellW, y * fontSize);
+
+        if (y * fontSize > h && Math.random() > 0.985) {
+          drops[i] = 0;
+        } else {
+          drops[i] = y + 1;
+        }
+      });
+    }
+
+    // rAF loop throttled to ~140ms so cadence stays constant regardless of the
+    // display refresh rate. A single rafId guards against a second concurrent
+    // loop starting (which would double the fall speed).
+    const frameInterval = 140;
+    let rafId = null;
+    let lastTime = 0;
+    function loop(now) {
+      rafId = requestAnimationFrame(loop);
+      if (now - lastTime < frameInterval) return;
+      lastTime = now;
+      drawFrame();
+    }
+    function start() {
+      if (rafId !== null) return;
+      lastTime = performance.now();
+      rafId = requestAnimationFrame(loop);
+    }
+    function stop() {
+      if (rafId === null) return;
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+
+    // don't animate a background nobody can see; reset the clock on resume so
+    // there's no catch-up burst after the tab was hidden for a while.
+    document.addEventListener("visibilitychange", () => {
+      document.hidden ? stop() : start();
+    });
+
+    // reallocating the drops array on every resize event thrashes during a
+    // window drag — debounce so it rebuilds only once the drag settles.
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
+    });
+
+    start();
+  })();
+
+  /* ---------- side rail: scrollspy + click-to-jump ---------- */
+  (function sideRail() {
+    const items = Array.from(document.querySelectorAll(".side-rail__list li"));
+    if (!items.length) return;
+
+    items.forEach((li) => {
+      li.addEventListener("click", () => {
+        const target = document.getElementById(li.dataset.target);
+        if (target) target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          items.forEach((li) => li.classList.toggle("is-active", li.dataset.target === entry.target.id));
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+
+    items.forEach((li) => {
+      const target = document.getElementById(li.dataset.target);
+      if (target) observer.observe(target);
+    });
+  })();
+
+  /* ---------- hero typewriter ---------- */
+  // sequential lines: two terminal commands typed char-by-char, with the
+  // name/subtitle/mission revealed right after their preceding command finishes
+  (function runTypewriter() {
+    const cmd1 = "whoami --intro";
+    const cmd2 = "cat mission.txt";
+    const name = "Raiyan Mirza";
+    const subtitle = "AI & Automation Developer · CS @ TMU · Toronto 🇨🇦";
+    const mission = "If it can be automated, I've probably tried. I build tools that put AI to work — extensions that read the fine print, bots that fill the forms, pipelines that move the data. Currently heading toward data engineering.";
+
+    const cmd1El = document.getElementById("typeCmd1");
+    const nameEl = document.getElementById("typeName");
+    const subtitleEl = document.getElementById("typeSubtitle");
+    const cmd2El = document.getElementById("typeCmd2");
+    const missionEl = document.getElementById("typeMission");
+
+    if (prefersReducedMotion) {
+      cmd1El.textContent = cmd1;
+      nameEl.textContent = name;
+      subtitleEl.textContent = subtitle;
+      cmd2El.textContent = cmd2;
+      missionEl.textContent = mission;
+      return;
+    }
+
+    // everything starts empty in the DOM (see markup); type each target in turn
+    cmd1El.textContent = "";
+    const cursor = document.createElement("span");
+    cursor.className = "cursor";
+
+    function typeInto(el, text, done) {
+      el.appendChild(cursor);
+      let i = 0;
+      const timer = setInterval(() => {
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i += 1;
+        if (i >= text.length) {
+          clearInterval(timer);
+          done();
+        }
+      }, 28);
+    }
+
+    typeInto(cmd1El, cmd1, () => {
+      cursor.remove();
+      nameEl.textContent = name;
+      subtitleEl.textContent = subtitle;
+      cmd2El.textContent = "";
+      typeInto(cmd2El, cmd2, () => {
+        cursor.remove();
+        missionEl.textContent = mission;
+        missionEl.appendChild(cursor);
+      });
+    });
+  })();
+
+  /* ---------- scroll reveal ---------- */
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+  }
+
+  /* ---------- grep filter ---------- */
+  const grepInput = document.getElementById("grepInput");
+  const grepCount = document.getElementById("grepCount");
+  const grepEmpty = document.getElementById("grepEmpty");
+  const cards = Array.from(document.querySelectorAll(".card"));
+
+  function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function clearHighlights(root) {
+    root.querySelectorAll("mark.hl").forEach((mark) => {
+      const parent = mark.parentNode;
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      parent.normalize();
+    });
+  }
+
+  function highlightTerm(root, term) {
+    clearHighlights(root);
+    if (!term) return;
+    const re = new RegExp(escapeRegExp(term), "ig");
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+
+    textNodes.forEach((textNode) => {
+      const text = textNode.nodeValue;
+      re.lastIndex = 0;
+      if (!re.test(text)) return;
+      re.lastIndex = 0;
+
+      const frag = document.createDocumentFragment();
+      let lastIndex = 0;
+      let match;
+      while ((match = re.exec(text))) {
+        if (match.index > lastIndex) {
+          frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+        }
+        const mark = document.createElement("mark");
+        mark.className = "hl";
+        mark.textContent = match[0];
+        frag.appendChild(mark);
+        lastIndex = match.index + match[0].length;
+      }
+      if (lastIndex < text.length) {
+        frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  function filterCards() {
+    let term = grepInput.value.trim().toLowerCase();
+    if (term === "clear") { grepInput.value = ""; term = ""; }
+
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches = term === "" || card.dataset.search.includes(term);
+      card.hidden = !matches;
+      if (matches) visible += 1;
+
+      ["title", "tags", "line"].forEach((part) => {
+        const el = card.querySelector(`.card__${part}`);
+        if (el) highlightTerm(el, matches ? term : "");
+      });
+    });
+
+    grepCount.textContent = `${visible} match${visible === 1 ? "" : "es"}`;
+    grepEmpty.classList.toggle("is-shown", visible === 0);
+  }
+  grepInput.addEventListener("input", filterCards);
+
+  /* ---------- card expand/collapse ---------- */
+  document.querySelectorAll(".card").forEach((card) => {
+    const wrap = card.querySelector(".card__details-wrap");
+    const btn = card.querySelector(".card__toggle");
+    if (!wrap || !btn) return;
+
+    // keep collapsed bullet lists out of the screen-reader tree via aria-hidden
+    // (not the hidden attribute, which would kill the grid-rows expand animation)
+    const sync = (expanded) => wrap.setAttribute("aria-hidden", String(!expanded));
+    sync(card.classList.contains("card--expanded"));
+
+    btn.addEventListener("click", () => {
+      const expanded = card.classList.toggle("card--expanded");
+      btn.setAttribute("aria-expanded", String(expanded));
+      btn.textContent = expanded ? "▴ close" : "▾ details";
+      sync(expanded);
+    });
+  });
+
+  /* ---------- project links (source of truth: PROJECT_LINKS at top) ---------- */
+  // key = first token of the card title (e.g. "sentin-ai 🏆 …" → "sentin-ai")
+  document.querySelectorAll(".card").forEach((card) => {
+    const key = card.querySelector(".card__title").textContent.trim().split(/\s+/)[0];
+    const links = PROJECT_LINKS[key];
+    if (!links) return;
+
+    const row = document.createElement("div");
+    row.className = "card__links";
+    const makeLink = (label, href) => {
+      const a = document.createElement("a");
+      a.className = "card__link";
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = label;
+      return a;
+    };
+    row.appendChild(makeLink("code ↗", links.repo));
+    if (links.demo) row.appendChild(makeLink("demo ↗", links.demo));
+    card.appendChild(row);
+  });
+
+  /* ---------- nav / hero smooth scroll ---------- */
+  document.getElementById("viewWorkBtn").addEventListener("click", () => {
+    document.getElementById("work").scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+  });
+
+  /* ---------- command palette (⌘K / ctrl+K) ---------- */
+  (function commandPalette() {
+    const overlay = document.getElementById("cmdkOverlay");
+    const input = document.getElementById("cmdkInput");
+    const list = document.getElementById("cmdkList");
+    const items = Array.from(list.querySelectorAll("li"));
+    const hintBtn = document.getElementById("cmdkHintBtn");
+    let lastFocused = null;
+
+    function setActive(index) {
+      const visible = items.filter((li) => !li.hidden);
+      visible.forEach((li) => li.classList.remove("is-active"));
+      if (visible[index]) visible[index].classList.add("is-active");
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      overlay.hidden = false;
+      document.body.style.overflow = "hidden";
+      input.value = "";
+      items.forEach((li) => { li.hidden = false; });
+      setActive(0);
+      input.focus();
+    }
+
+    function close() {
+      overlay.hidden = true;
+      document.body.style.overflow = "";
+      if (lastFocused) lastFocused.focus();
+    }
+
+    function jumpTo(id) {
+      close();
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+    }
+
+    hintBtn.addEventListener("click", open);
+
+    document.addEventListener("keydown", (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        overlay.hidden ? open() : close();
+      } else if (e.key === "Escape" && !overlay.hidden) {
+        close();
+      }
+    });
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) close();
+    });
+
+    input.addEventListener("input", () => {
+      const term = input.value.trim().toLowerCase();
+      items.forEach((li) => {
+        li.hidden = term !== "" && !li.textContent.toLowerCase().includes(term);
+      });
+      setActive(0);
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const visible = items.filter((li) => !li.hidden);
+      const activeIndex = visible.findIndex((li) => li.classList.contains("is-active"));
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setActive(Math.min(activeIndex + 1, visible.length - 1));
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setActive(Math.max(activeIndex - 1, 0));
+      } else if (e.key === "Enter") {
+        const active = visible[activeIndex] || visible[0];
+        if (active) jumpTo(active.dataset.target);
+      }
+    });
+
+    items.forEach((li) => {
+      li.addEventListener("mouseenter", () => {
+        items.forEach((other) => other.classList.remove("is-active"));
+        li.classList.add("is-active");
+      });
+      li.addEventListener("click", () => jumpTo(li.dataset.target));
+    });
+  })();
+</script>
+
+</body>
+</html>
