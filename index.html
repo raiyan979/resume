@@ -3,24 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#131313" />
-    <title>Raiyan Mirza — CS Student, Data Engineering Co-op</title>
-    <meta name="description" content="Raiyan Mirza — Computer Science student at Toronto Metropolitan University. Building Chrome extensions, Python tools, and AI automation; looking for a Fall 2026 data engineering co-op." />
+    <meta name="theme-color" content="#0D0D11" />
+    <title>Raiyan Mirza — AI Researcher & Computer Science Engineer</title>
+    
+    <!-- SEO Optimization -->
+    <meta name="description" content="AI Researcher & Computer Science Engineer specializing in high-performance machine learning models, intelligent interfaces, and full-stack system architecture." />
     <link rel="canonical" href="https://raiyan979.github.io/resume/" />
 
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://raiyan979.github.io/resume/" />
-    <meta property="og:title" content="Raiyan Mirza — CS Student, Data Engineering Co-op" />
-    <meta property="og:description" content="Computer Science student at Toronto Metropolitan University. Chrome extensions, Python tools, and AI automation; looking for a Fall 2026 data engineering co-op." />
+    <meta property="og:title" content="Raiyan Mirza — AI Researcher & Computer Science Engineer" />
+    <meta property="og:description" content="AI Researcher & Computer Science Engineer specializing in high-performance machine learning models, intelligent interfaces, and full-stack system architecture." />
     <meta property="og:image" content="https://raiyan979.github.io/resume/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Raiyan Mirza — CS Student, Data Engineering Co-op" />
-    <meta name="twitter:description" content="Computer Science student at Toronto Metropolitan University; looking for a Fall 2026 data engineering co-op." />
+    <meta name="twitter:title" content="Raiyan Mirza — AI Researcher & Computer Science Engineer" />
+    <meta name="twitter:description" content="AI Researcher & Computer Science Engineer specializing in high-performance machine learning models, intelligent interfaces, and full-stack system architecture." />
     <meta name="twitter:image" content="https://raiyan979.github.io/resume/og-image.png" />
 
+    <!-- Schema Markup -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -28,9 +33,17 @@
         "name": "Raiyan Mirza",
         "url": "https://raiyan979.github.io/resume/",
         "email": "raiyan.mirza1233@gmail.com",
-        "jobTitle": "Computer Science Student",
-        "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" },
-        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Toronto Metropolitan University" },
+        "jobTitle": "AI Researcher & Computer Science Engineer",
+        "address": { 
+          "@type": "PostalAddress", 
+          "addressLocality": "Toronto", 
+          "addressRegion": "ON", 
+          "addressCountry": "CA" 
+        },
+        "alumniOf": { 
+          "@type": "CollegeOrUniversity", 
+          "name": "Toronto Metropolitan University" 
+        },
         "sameAs": [
           "https://github.com/raiyan979",
           "https://www.linkedin.com/in/raiyanbeg-aashifbeg-mirza-a60436330"
@@ -38,14 +51,509 @@
       }
     </script>
 
+    <!-- Google Fonts Connection -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Crect%20width='16'%20height='16'%20rx='3'%20fill='%23191919'/%3E%3Ctext%20x='8'%20y='12'%20font-family='Georgia,serif'%20font-size='11'%20fill='%23fbfaf8'%20text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
-    <script type="module" crossorigin src="/resume/assets/index-Vo1UjdkH.js"></script>
-    <link rel="stylesheet" crossorigin href="/resume/assets/index-CAZZ3LQa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Crect%20width='16'%20height='16'%20rx='3'%20fill='%23191919'/%3E%3Ctext%20x='8'%20y='12'%20font-family='Georgia,serif'%20font-size='11'%20fill='%23ff3344'%20text-anchor='middle'%3ERM%3C/text%3E%3C/svg%3E">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <!-- Third-Party Animation Libraries (GSAP, ScrollTrigger, Lenis) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    
+    <!-- Custom Main Script -->
+    <script defer src="./assets/main.js"></script>
   </head>
+  
   <body class="antialiased">
-    <div id="root"></div>
+    <!-- Ambient Light Engine Shifting Background -->
+    <div id="ambient-glow"></div>
+
+    <!-- Header Navigation -->
+    <header>
+      <div class="container nav-container">
+        <a href="#hero" class="logo">RM<span>.</span></a>
+        
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <a href="raiyan-mirza-resume.pdf" target="_blank" class="resume-btn">Resume</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECTION 1: HERO SECTION -->
+      <section id="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Raiyan Mirza</h1>
+            <p class="hero-bio">
+              AI Researcher & Computer Science Engineer specializing in high-performance machine learning models, intelligent interfaces, and full-stack system architecture.
+            </p>
+            <div class="hero-ctas">
+              <a href="#projects" class="cta-primary">View Work</a>
+              <a href="#contact" class="cta-secondary">Get In Touch</a>
+            </div>
+          </div>
+          <div class="hero-avatar-wrapper">
+            <div class="avatar-ring">
+              <img src="headshot.jpeg" alt="Raiyan Mirza Headshot" class="avatar-image" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+                  <!-- SECTION 2: PROJECTS -->
+      <section id="projects">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Featured Work</span>
+            <h2 class="section-title">Projects<span>.</span></h2>
+          </div>
+
+          <div class="belt" data-belt>
+            <!-- Prev Arrow -->
+            <button class="belt-arrow belt-prev" aria-label="Previous project">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <!-- Belt viewport — clips the drifting cards; JS positions every card -->
+            <div class="belt-viewport" tabindex="0" role="region" aria-label="Projects carousel — drag, or use the left and right arrow keys, to browse">
+
+              <article class="belt-card" data-index="0">
+                <div class="project-image-side">
+                  <img src="projects/medical.png" alt="Medical Management System" class="project-img" />
+                </div>
+                <div class="project-details-side">
+                  <span class="project-category">Healthcare AI</span>
+                  <h3 class="project-title">Medical Management System</h3>
+                  <p class="project-desc">A course project in polyglot plumbing: a Java Swing app for patient records that shells out to Python for analytics and charts. No database — everything lives in memory while it runs.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Java Swing</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Matplotlib</span>
+                    <span class="tech-tag">ProcessBuilder</span>
+                  </div>
+                  <a href="https://github.com/raiyan979/hospital-GUI" target="_blank" class="project-link">View Code <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7 7 17 7 17 17" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </article>
+
+              <article class="belt-card" data-index="1">
+                <div class="project-image-side">
+                  <img src="projects/lexiq.png" alt="Lexiq App" class="project-img" />
+                </div>
+                <div class="project-details-side">
+                  <span class="project-category">AI Language Agent</span>
+                  <h3 class="project-title">Lexiq</h3>
+                  <p class="project-desc">The project I have put the most into. A French-learning desktop app that runs entirely offline with spaced-repetition review and generated pronunciation audio across 32 units. Built with Tauri and Svelte.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Tauri 2</span>
+                    <span class="tech-tag">Svelte 5</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">FSRS</span>
+                  </div>
+                  <a href="https://github.com/raiyan979/lexiq-app" target="_blank" class="project-link">View Code <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7 7 17 7 17 17" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </article>
+
+              <article class="belt-card" data-index="2">
+                <div class="project-image-side">
+                  <img src="projects/sentin-ai.png" alt="Sentin AI" class="project-img" />
+                </div>
+                <div class="project-details-side">
+                  <span class="project-category">TELUS AI Hackathon</span>
+                  <h3 class="project-title">Sentin AI</h3>
+                  <p class="project-desc">Built in 24 hours at the TELUS AI Hackathon. A Chrome side-panel extension that reads terms of service on any page and flags clauses quietly signing away your privacy or data.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Chrome SidePanel API</span>
+                    <span class="tech-tag">GPT-4o-mini</span>
+                    <span class="tech-tag">Gemini API</span>
+                  </div>
+                  <a href="#" class="project-link">View Details <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7 7 17 7 17 17" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </article>
+
+              <article class="belt-card" data-index="3">
+                <div class="project-image-side">
+                  <img src="projects/sign-language.png" alt="Sign Language Interpreter" class="project-img" />
+                </div>
+                <div class="project-details-side">
+                  <span class="project-category">Computer Vision</span>
+                  <h3 class="project-title">Sign Language Interpreter</h3>
+                  <p class="project-desc">Translates sign language to text from a live webcam. MediaPipe tracks hand landmarks, and an LSTM trained on short gesture sequences classifies letters and phrases.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">MediaPipe</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Tkinter</span>
+                  </div>
+                  <a href="https://github.com/raiyan979/sign-language-interpreter" target="_blank" class="project-link">View Code <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7 7 17 7 17 17" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </article>
+
+              <article class="belt-card" data-index="4">
+                <div class="project-image-side">
+                  <img src="projects/jobautofill.png" alt="Job Autofill" class="project-img" />
+                </div>
+                <div class="project-details-side">
+                  <span class="project-category">Browser Automation</span>
+                  <h3 class="project-title">Job Autofill</h3>
+                  <p class="project-desc">Fills out job applications so you do not retype the same details on every portal. A desktop app built with Next.js and Electron that maps form fields to a saved profile.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Electron</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                  </div>
+                  <a href="https://github.com/raiyan979/jobautofill" target="_blank" class="project-link">View Code <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7 7 17 7 17 17" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </article>
+
+              <article class="belt-card" data-index="5">
+                <div class="project-image-side">
+                  <img src="projects/study-ai.png" alt="Study AI" class="project-img" />
+                </div>
+                <div class="project-details-side">
+                  <span class="project-category">EdTech AI</span>
+                  <h3 class="project-title">Study AI</h3>
+                  <p class="project-desc">Point it at your notes, a PDF, or a screenshot and it hands back a quiz or practice exam. A small web app wired to the Gemini API.</p>
+                  <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Gemini API</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                  </div>
+                  <a href="https://github.com/raiyan979/study-ai" target="_blank" class="project-link">View Code <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7 7 17 7 17 17" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </article>
+
+            </div><!-- /.belt-viewport -->
+
+            <!-- Next Arrow -->
+            <button class="belt-arrow belt-next" aria-label="Next project">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <!-- Controls: pause/play + navigation dots -->
+            <div class="belt-controls">
+              <button class="belt-pause" aria-label="Pause auto-scroll" aria-pressed="false">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><span>Pause</span>
+              </button>
+              <div class="belt-dots" role="group" aria-label="Jump to a project">
+                <button class="belt-dot active" data-goto="0" aria-label="Go to project 1"></button>
+                <button class="belt-dot" data-goto="1" aria-label="Go to project 2"></button>
+                <button class="belt-dot" data-goto="2" aria-label="Go to project 3"></button>
+                <button class="belt-dot" data-goto="3" aria-label="Go to project 4"></button>
+                <button class="belt-dot" data-goto="4" aria-label="Go to project 5"></button>
+                <button class="belt-dot" data-goto="5" aria-label="Go to project 6"></button>
+              </div>
+            </div>
+          </div><!-- /.belt -->
+        </div>
+      </section>
+
+      <!-- SECTION 3: EXPERIENCE -->
+      <section id="experience">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Professional Path</span>
+            <h2 class="section-title">Experience<span>.</span></h2>
+          </div>
+          
+          <div class="experience-groups">
+            <!-- Technical Experience Group -->
+            <div class="experience-group">
+              <h3 class="exp-group-title">Technical Experience</h3>
+              <div class="experience-layout">
+                <div class="timeline-track">
+                  <div class="timeline-line-fill"></div>
+                </div>
+                
+                <div class="experience-list">
+                  <!-- Junior Developer @ Eshock -->
+                  <div class="experience-item">
+                    <div class="timeline-node"></div>
+                    <div class="experience-card">
+                      <div class="exp-meta">
+                        <h4 class="exp-role">Junior Developer <span class="exp-company">@ Eshock.it.com</span></h4>
+                        <span class="exp-duration">2019 - 2021</span>
+                      </div>
+                      <p class="exp-location">Lilongwe, Malawi</p>
+                      <ul class="exp-bullets">
+                        <li>Developed and deployed custom e-commerce modules to enhance platform functionality and improve user experience for digital retail solutions.</li>
+                        <li>Architected technical solutions for complex business problems, focusing on system scalability and efficient data handling.</li>
+                        <li>Managed end-to-end project lifecycles, ensuring development milestones were met and technical requirements aligned with business goals.</li>
+                        <li>Assisted in the daily maintenance and optimization of complex systems, reducing downtime through proactive debugging and system monitoring.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Technical Assistant @ Dept of Civil Aviation -->
+                  <div class="experience-item">
+                    <div class="timeline-node"></div>
+                    <div class="experience-card">
+                      <div class="exp-meta">
+                        <h4 class="exp-role">Technical Assistant <span class="exp-company">@ Department of Civil Aviation (Malawi Airport)</span></h4>
+                        <span class="exp-duration">2020</span>
+                      </div>
+                      <p class="exp-location">Lilongwe, Malawi</p>
+                      <ul class="exp-bullets">
+                        <li>Coordinated the technical installation of CCTV security systems and TV displays throughout the terminal to ensure 24/7 operational surveillance.</li>
+                        <li>Configured and maintained flight information display systems (FIDS), ensuring the accurate, real-time relay of critical flight data to passengers.</li>
+                        <li>Collaborated with engineering teams to troubleshoot hardware-software integration issues within high-security airport infrastructure.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Experience Group -->
+            <div class="experience-group" style="margin-top: 5rem;">
+              <h3 class="exp-group-title">Other Experience</h3>
+              <div class="experience-layout">
+                <div class="timeline-track">
+                  <div class="timeline-line-fill"></div>
+                </div>
+                
+                <div class="experience-list">
+                  <!-- Sortation Associate @ Amazon -->
+                  <div class="experience-item">
+                    <div class="timeline-node"></div>
+                    <div class="experience-card">
+                      <div class="exp-meta">
+                        <h4 class="exp-role">Sortation Associate <span class="exp-company">@ Amazon</span></h4>
+                        <span class="exp-duration">Feb 2026 - Apr 2026</span>
+                      </div>
+                      <p class="exp-location">Scarborough, ON</p>
+                      <ul class="exp-bullets">
+                        <li>Sorted high volumes of parcels by route and staged them for on-time dispatch.</li>
+                        <li>Kept pace with shift deadlines in a fast, physically demanding sortation environment.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Warehouse Supervisor @ AAM Furnishers -->
+                  <div class="experience-item">
+                    <div class="timeline-node"></div>
+                    <div class="experience-card">
+                      <div class="exp-meta">
+                        <h4 class="exp-role">Warehouse Supervisor <span class="exp-company">@ AAM Furnishers</span></h4>
+                        <span class="exp-duration">2023 - 2024</span>
+                      </div>
+                      <p class="exp-location">Lilongwe, Malawi</p>
+                      <ul class="exp-bullets">
+                        <li>Managed inventory control, workflow dispatch, and staff schedules for a 20+ person team.</li>
+                        <li>Reorganized warehouse routing and dispatch to move orders out faster across two sites.</li>
+                        <li>Held the floor to tight delivery deadlines and quality standards under high-volume pressure.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: EDUCATION -->
+      <section id="education">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Academic background</span>
+            <h2 class="section-title">Education<span>.</span></h2>
+          </div>
+          
+          <div class="education-card">
+            <div class="edu-info">
+              <h3 class="edu-inst">Toronto Metropolitan University (TMU)</h3>
+              <h4 class="edu-degree">Bachelor of Science in Computer Science</h4>
+              <p class="edu-focus">
+                Specializing in Artificial Intelligence, Data Structures, and High-Performance Computing.
+              </p>
+            </div>
+            <div class="edu-details">
+              <span class="edu-date">Expected Graduation: April 2028</span>
+              <div>
+                <h5 class="edu-courses-title">Relevant Coursework</h5>
+                <div class="edu-courses">
+                  <span class="course-tag">Data Structures & Algorithms</span>
+                  <span class="course-tag">Software Engineering</span>
+                  <span class="course-tag">C & UNIX Systems</span>
+                  <span class="course-tag">Computer Organization</span>
+                  <span class="course-tag">Comparative Languages</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CAPABILITIES -->
+      <section id="capabilities">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Skills & Technologies</span>
+            <h2 class="section-title">Capabilities<span>.</span></h2>
+          </div>
+          
+          <div class="capabilities-grid">
+            <!-- Languages -->
+            <div class="capability-card">
+              <h3 class="cap-title">Languages</h3>
+              <div class="cap-list">
+                <span class="cap-tag">Python</span>
+                <span class="cap-tag">C++</span>
+                <span class="cap-tag">JavaScript</span>
+                <span class="cap-tag">TypeScript</span>
+                <span class="cap-tag">Java</span>
+                <span class="cap-tag">SQL</span>
+              </div>
+            </div>
+
+            <!-- AI & ML -->
+            <div class="capability-card">
+              <h3 class="cap-title">AI & ML</h3>
+              <div class="cap-list">
+                <span class="cap-tag">PyTorch</span>
+                <span class="cap-tag">TensorFlow</span>
+                <span class="cap-tag">Scikit-Learn</span>
+                <span class="cap-tag">OpenCV</span>
+                <span class="cap-tag">HuggingFace</span>
+                <span class="cap-tag">MediaPipe</span>
+                <span class="cap-tag">Gemini API</span>
+              </div>
+            </div>
+
+            <!-- Frameworks & Tools -->
+            <div class="capability-card">
+              <h3 class="cap-title">Frameworks & Tools</h3>
+              <div class="cap-list">
+                <span class="cap-tag">React</span>
+                <span class="cap-tag">Node.js</span>
+                <span class="cap-tag">Next.js</span>
+                <span class="cap-tag">Docker</span>
+                <span class="cap-tag">AWS</span>
+                <span class="cap-tag">GCP</span>
+                <span class="cap-tag">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: EXTRACURRICULAR -->
+      <section id="extracurricular">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Engagement & Leadership</span>
+            <h2 class="section-title">Extracurricular<span>.</span></h2>
+          </div>
+          
+          <div class="extracurricular-grid">
+            <!-- Card 1 -->
+            <div class="extracurricular-card">
+              <div class="extra-content">
+                <h3 class="extra-title">Taekwondo Instructor</h3>
+                <p class="extra-desc">
+                  Providing martial arts discipline, technique instruction, and physical conditioning. Fostering core confidence and personal leadership values.
+                </p>
+              </div>
+              <span class="extra-org">TMU Taekwondo Club</span>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="extracurricular-card">
+              <div class="extra-content">
+                <h3 class="extra-title">MSA Executive</h3>
+                <p class="extra-desc">
+                  Muslim Students Association event coordination. Organised Jummah logistics and community gatherings for 200+ campus members.
+                </p>
+              </div>
+              <span class="extra-org">TMU MSA</span>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="extracurricular-card">
+              <div class="extra-content">
+                <h3 class="extra-title">Food Distribution</h3>
+                <p class="extra-desc">
+                  Logistics coordinator for weekly community food drives, managing volunteer allocation and resource distribution to support over 100+ local families.
+                </p>
+              </div>
+              <span class="extra-org">Malawi Humanitarian Relief</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Get in touch</span>
+            <h2 class="section-title">Contact<span>.</span></h2>
+          </div>
+          
+          <div class="contact-container">
+            <h3 class="contact-sub">Let's Build Something.</h3>
+            
+            <div class="email-copy-box">
+              <span class="email-display">raiyan.mirza1233@gmail.com</span>
+              <button class="email-copy-btn" aria-label="Copy email address to clipboard">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            
+            <ul class="contact-links">
+              <li><a href="https://github.com/raiyan979" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/raiyanbeg-aashifbeg-mirza-a60436330" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="mailto:raiyan.mirza1233@gmail.com">Email</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-container">
+        <a href="#hero" class="footer-logo">RM<span>.</span></a>
+        <span class="footer-copy">© 2026 Raiyan Mirza. Built for the future of AI.</span>
+        <ul class="footer-links">
+          <li><a href="https://github.com/raiyan979" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/raiyanbeg-aashifbeg-mirza-a60436330" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="raiyan-mirza-resume.pdf" target="_blank">Resume</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to Top">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </body>
 </html>
