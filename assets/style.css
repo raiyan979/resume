@@ -578,6 +578,14 @@ section {
   transform: translate(-50%, -50%); /* JS appends translateX() + scale() */
 }
 
+/* Let the grid tracks shrink to the card width — without this the project
+   screenshot's intrinsic width blows the column out past the card edge and
+   clips the text (most visible on phones). */
+.belt-card > * {
+  min-width: 0;
+  min-height: 0;
+}
+
 .belt-arrow {
   position: absolute;
   top: 50%;
