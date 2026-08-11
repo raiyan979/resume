@@ -137,18 +137,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const render = () => {
       const front = wrap(Math.round(state.pos)); // the card nearest centre
+      const mobile = window.innerWidth <= 768;
       for (let i = 0; i < TOTAL; i++) {
         const d = diffFor(i);
         const ad = Math.abs(d);
-        const x = d * gap;
-        const scale = Math.max(0.62, 1 - ad * 0.16);
-        const opacity = ad < 0.5 ? 1 : Math.max(0, 1 - (ad - 0.45) * 0.85);
-        const blur = Math.min(6, ad * 2.2);
-        const bri = Math.max(0.55, 1 - ad * 0.28);
         const card = cards[i];
-        card.style.transform = `translate(-50%, -50%) translateX(${x.toFixed(1)}px) scale(${scale.toFixed(3)})`;
-        card.style.opacity = opacity.toFixed(3);
-        card.style.filter = `blur(${blur.toFixed(2)}px) brightness(${bri.toFixed(2)})`;
+        if (mobile) {
+          // Phones: one clean card at a time — all stacked at the centre,
+          // cross-fading from one to the next (no coverflow clutter).
+          card.style.transform = 'translate(-50%, -50%)';
+          card.style.opacity = Math.max(0, 1 - ad).toFixed(3);
+          card.style.filter = 'none';
+        } else {
+          const x = d * gap;
+          const scale = Math.max(0.62, 1 - ad * 0.16);
+          const opacity = ad < 0.5 ? 1 : Math.max(0, 1 - (ad - 0.45) * 0.85);
+          const blur = Math.min(6, ad * 2.2);
+          const bri = Math.max(0.55, 1 - ad * 0.28);
+          card.style.transform = `translate(-50%, -50%) translateX(${x.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+          card.style.opacity = opacity.toFixed(3);
+          card.style.filter = `blur(${blur.toFixed(2)}px) brightness(${bri.toFixed(2)})`;
+        }
         card.style.zIndex = String(Math.round(50 - ad * 10));
         card.style.pointerEvents = (i === front) ? 'auto' : 'none';
       }

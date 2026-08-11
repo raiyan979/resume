@@ -511,6 +511,17 @@ section {
   transform: translate(3px, -3px);
 }
 
+/* Shown instead of a link when a project's repo is private. */
+.project-private {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
 /* Scroll Assist Text */
 .dial-assist {
   font-family: var(--font-mono);
@@ -1515,7 +1526,68 @@ footer {
   }
 
   .belt-card .tech-tag {
-    font-size: 0.62rem;
-    padding: 0.28rem 0.55rem;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* -------------------------------------------------------------
+ * MOBILE TAP TARGETS + readable label text
+ * ------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Hamburger: grow the tap area without moving the bars. */
+  .menu-toggle {
+    padding: 10px;
+    box-sizing: content-box;
+  }
+
+  /* Carousel dots: small visible bar, but a 20-34px x 36px hit area. */
+  .belt-dots {
+    gap: 0.25rem;
+  }
+
+  .belt-dot {
+    width: 20px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .belt-dot.active {
+    width: 34px;
+    background: transparent;
+  }
+
+  .belt-dot::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.3s, background 0.3s;
+  }
+
+  .belt-dot.active::before {
+    width: 24px;
+    background: var(--accent);
+  }
+
+  /* Bigger tap area for the card + contact links. */
+  .belt-card .project-link,
+  .belt-card .project-private {
+    padding: 8px 2px;
+  }
+
+  .contact-links a {
+    padding: 8px 0;
+  }
+
+  /* Nudge the smallest labels up to a readable size. */
+  .course-tag,
+  .extra-org {
+    font-size: 0.78rem;
   }
 }
