@@ -1474,3 +1474,48 @@ footer {
     overflow-wrap: anywhere;
   }
 }
+
+/* -------------------------------------------------------------
+ * MOBILE PROJECT CARD — stop the text side from getting crushed:
+ * smaller title, top-aligned content, 3-line description clamp,
+ * tighter tech tags. (Was: 3-line title + 1-line truncated desc.)
+ * ------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .belt-card {
+    grid-template-rows: 190px 1fr;
+    height: 560px;
+  }
+
+  .belt-card .project-details-side {
+    padding: 1.4rem 1.5rem 1.6rem;
+    justify-content: flex-start;
+  }
+
+  .belt-card .project-category {
+    margin-bottom: 0.5rem;
+  }
+
+  .belt-card .project-title {
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin-bottom: 0.7rem;
+  }
+
+  .belt-card .project-desc {
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .belt-card .project-tech {
+    margin-bottom: 1.1rem;
+    gap: 0.4rem;
+  }
+
+  .belt-card .tech-tag {
+    font-size: 0.62rem;
+    padding: 0.28rem 0.55rem;
+  }
+}
