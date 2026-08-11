@@ -1046,8 +1046,8 @@ section {
 /* "EXTRACURRICULAR" is a long single word — keep it on ONE line and let it
    scale down to fit instead of wrapping onto a second line. */
 #extracurricular .section-title {
-  white-space: nowrap;
-  font-size: clamp(1.25rem, 5vw, 3.5rem);
+  font-size: clamp(1rem, 4.6vw, 3.5rem);
+  overflow-wrap: anywhere;
 }
 
 .extracurricular-grid {
@@ -1448,5 +1448,29 @@ footer {
   
   .dial-wrapper {
     min-height: 700px;
+  }
+}
+
+/* -------------------------------------------------------------
+ * MOBILE POLISH — fit section titles on one line + tighten the
+ * vertical rhythm so sections stop wasting half a screen.
+ * ------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 5rem 0 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 7vw, 2.75rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
   }
 }
